@@ -1,0 +1,11 @@
+{
+    "name": "kus/kusproduct",
+    "description": "a simple product management webform",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\" : "src/"
+        }
+    }
+}
