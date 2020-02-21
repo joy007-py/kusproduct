@@ -47,6 +47,11 @@ class Product extends Db
      */
     public function getProductById( $id )
     {
-        
+        $sql = 'SELECT *
+            FROM kus_product
+            WHERE id = :id';
+        $sth = $this->con->prepare($sql);
+        $sth->execute(array(':id' => $id ));
+        return $sth->fetch(\PDO::FETCH_ASSOC);
     }
 }

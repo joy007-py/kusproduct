@@ -11,7 +11,7 @@ class siteController
         $model = new Product();
 
         return $this->render( 'product.php', [
-            'data' => $model->getAllProduct(),
+            'data' => $model->getProductById(1),
             'name' => 'my name'
         ] );
     }
