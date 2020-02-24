@@ -12,5 +12,3 @@ use \app\Router;
 
 $router = new Router($_SERVER);
 $router->dispatch();
-
-
