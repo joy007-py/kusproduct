@@ -89,7 +89,7 @@ class Product extends Db
             $output = $data;
             if( array_key_exists('created_at',$output) )
             {
-                $dt = new \DateTime($value['created_at']);
+                $dt = new \DateTime($output['created_at']);
                 $output['created_at'] = $dt->format('Y-m-d');
             }
 
