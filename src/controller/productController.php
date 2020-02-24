@@ -35,6 +35,30 @@ class productController
     }
 
     /**
+     * create a new product using ajax
+     * @param string product name
+     * @param string product quantity
+     * @param string product price
+     */
+    public function createInJSON( $name, $quantity, $price )
+    {
+        $model = $this->model();
+        echo $model->createNewProductInAjax($name, $quantity, $price);
+    }
+
+    /**
+     * delete an product in json
+     * @param string $id id of the product
+     */
+    public function deleteInJSON( $id )
+    {
+        $model = $this->model();
+        echo $model->deleteInAjax( $id );
+        // var_dump( $model->deleteProductById( $id ) );
+    }
+
+
+    /**
      * load the product model
      * @return object
      */
@@ -42,7 +66,6 @@ class productController
     {
         return new Product();
     }
-
 
     /**
      * render a view file

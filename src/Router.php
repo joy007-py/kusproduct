@@ -35,7 +35,7 @@ class Router
         {
             if( $this->_request_method == 'POST' )
             {
-                $pro_con->create( $_POST['name'], $_POST['quantity'], $_POST['price'] );
+                $pro_con->createInJSON( $_POST['name'], $_POST['quantity'], $_POST['price'] );
             }
         }
         elseif( $this->_request_uri == '/update'  )
@@ -49,12 +49,12 @@ class Router
         {
             if( $this->_request_method == 'POST' )
             {
-                echo 'wanna delete  product';
+                $pro_con->deleteInJSON( $_POST['id'] );
             }
         }
         else
         {
-            echo 'sorry not route found for your request';
+            echo 'sorry but no route found for your request';
         }
     }
 }
