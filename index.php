@@ -4,9 +4,13 @@ require 'vendor/autoload.php';
 
 define('PROJECT_DIR', __DIR__);
 
+use \app\Router;
 
-$con = new \app\controller\siteController();
+$router = new Router($_SERVER);
+$router->dispatch();
 
-$con->index();
+// echo '<pre>';
+// print_r($_SERVER);
+// echo '</pre>';
 
 
