@@ -128,7 +128,7 @@ class Product extends Db
 
     /**
      * get all product data with formatted value
-     * 
+     * @param null
      * @return array
      */
     public function getAllProductFormattedData()
@@ -147,7 +147,28 @@ class Product extends Db
     }
 
     /**
-     * reformat data
+     * dump data as json file
+     * @param null
+     * @return json product info as .json file
+     */
+    public function dumpJsonData()
+    {
+        $file_path = PROJECT_DIR . '/'. DATA_DUMP_FILE;
+        $data = $this->getAllProductFormattedData();
+        if(\file_exists( $file_path ))
+        {
+            \unlink($file_path);
+        }
+        if( !empty($data) )
+        {
+            $fp = fopen($file_path, 'w');
+            fwrite($fp, json_encode($data));
+            fclose($fp);
+        }
+    }
+
+    /**
+     * reformat data in the presentable format
      * @param array $data 
      * @return array
      */
@@ -172,8 +193,8 @@ class Product extends Db
     }   
 
     /**
-     * get product data
-     * 
+     * get all product data sorted by submitted date
+     * @param null
      * @return array
      */
     public function getAllProduct()
@@ -185,9 +206,7 @@ class Product extends Db
 
     /**
      * get product information by id
-     * 
      * @param integer $id
-     * 
      * @return array
      */
     public function getProductById( $id )
@@ -214,6 +233,7 @@ class Product extends Db
     /**
      * delete an product
      * @param string $id id of the product which will be deleted
+     * @return bool
      */
     public function deleteProductById( $id )
     {
@@ -249,6 +269,8 @@ class Product extends Db
 
     /**
      * return json msg
+     * @param bool $data data to check true or false and return json outuput for ajax calls
+     * @return json 
      */
     private function jsonMsg( $data )
     {

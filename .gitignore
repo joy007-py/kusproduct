@@ -1,3 +1,12 @@
+
+# root vendor dependecy folder
 /vendor
+
+#php test file
 test.php
+
+# vs code config
 .vscode
+
+#db dump file in json
+product.json

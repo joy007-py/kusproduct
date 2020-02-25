@@ -13,6 +13,7 @@ class productController
     public function index()
     {
         $model = $this->model();
+        $model->dumpJsonData();
 
         return $this->render( 'product.php', [
             'data' => $model->getAllProductFormattedData(),
@@ -64,7 +65,6 @@ class productController
     {
         $model = $this->model();
         echo $model->deleteInAjax( $id );
-        // var_dump( $model->deleteProductById( $id ) );
     }
 
     /**
