@@ -79,35 +79,57 @@ document.getElementById('_c').addEventListener('click',(e)=>{
     });
 });
 
-document.getElementById('data_body').addEventListener('click',(e)=>{
-    if ( e.target.tagName == 'BUTTON' )
-    {
-        if ( e.target.dataset.btn == 'e' )
-        {
-            console.log('fire edit');
-        }
-        else if( e.target.dataset.btn == 'd')
+try {
+    document.getElementById('data_body').addEventListener('click',(e)=>{
+        if ( e.target.tagName == 'BUTTON' )
         {
             var p_id = e.target.dataset.id;
-            let url =  origin +'/delete';
-            fetch(url, {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-            },
-            body: 'id='+p_id,
-            })
-            .then((data) => data.json())
-            .then((data) => {
-                if( data.status)
-                {
-                    e.target.closest('tr').remove();
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+            if ( e.target.dataset.btn == 'e' )
+            {
+                let url = origin + '/edit?id='+ p_id;
+                fetch(url,{
+                    method: 'get',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                })
+                .then( (data) => data.json() )
+                .then( (data) => {
+                    console.log(data);
+                    var form = document.getElementById('_p_f');
+                    var _f = new FormData(form);
+                    console.log(_f);
+                    _f.append('name','name');
+                    _f.append('price','12');
+                } )
+                .catch( (e) => {
+                    console.log( 'error: ', e);
+                } );
+            }
+            else if( e.target.dataset.btn == 'd')
+            {
+                let url =  origin +'/delete';
+                fetch(url, {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+                },
+                body: 'id='+p_id,
+                })
+                .then((data) => data.json())
+                .then((data) => {
+                    if( data.status)
+                    {
+                        e.target.closest('tr').remove();
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
         }
-    }
-});
+    });
+} catch (error) {}
+

@@ -20,6 +20,8 @@
             <div class="row">
                 <div class="col-sm-9 product-container">
                     <h5>Product List</h5>
+
+                    <?php if( !empty( $data ) ) : ?>
                     <table class="table">
                         <thead>
                             <tr>
@@ -45,9 +47,11 @@
                                     </td>
                                 </tr>
                             <?php endforeach ?>
-                            
                         </tbody>
                     </table>
+                    <?php else:  ?>
+                        <?php echo '<p style="text-align:center">no product found</p>' ?>
+                    <?php endif ?>
                 </div>
                 <div class="col-sm-3">
                     <p>Create New Product</p>

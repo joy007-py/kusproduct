@@ -40,11 +40,7 @@ class Product extends Db
         $new_product_id = $this->createNewProduct( $name, $quantity, $price );
         if( !empty( $new_product_id ) )
         {
-            $new_product_data = $this->getProductById( $new_product_id );
-            $response = array(
-                'status' => 'true',
-                'product' => $this->reformatData( $new_product_data )
-            );
+            $response = $this->getSingleProductFromattedData( $new_product_id );
         }
         else
         {
@@ -54,6 +50,46 @@ class Product extends Db
             );
         }
         return \json_encode($response);
+    }
+
+
+    /**
+     * return single product data by id in json format
+     * @param int $id
+     */
+    public function getSingleProductFromattedDatainJSON( $id )
+    {
+        $data = $this->getSingleProductFromattedData( $id );
+        if( !empty( $data ) )
+        {
+            return \json_encode($data);
+        }
+        else
+        {
+            return \json_encode(array());
+        }
+    }
+
+    /**
+     * get single product reformatted presentalble data
+     * @param int $id  id of the required product
+     * @return array
+     */
+    public function getSingleProductFromattedData( $id )
+    {
+        $product_data = $this->getProductById( $id );
+        if ( !empty($product_data) )
+        {
+            $data = array(
+                'status' => 'true',
+                'product' => $this->reformatData( $product_data )
+            );
+        }
+        else
+        {
+            $data = [];
+        }
+        return $data;
     }
 
     /**

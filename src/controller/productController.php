@@ -57,6 +57,15 @@ class productController
         // var_dump( $model->deleteProductById( $id ) );
     }
 
+    /**
+     * get single product info by id
+     * @param int $id id of the product
+     */
+    public function getSingleProductInfoInJSON( $id )
+    {
+        $model = $this->model();
+        echo $model->getSingleProductFromattedDatainJSON( $id );
+    }
 
     /**
      * load the product model
