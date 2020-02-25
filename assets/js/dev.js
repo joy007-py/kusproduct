@@ -155,7 +155,7 @@ try {
             }
             else if( e.target.dataset.btn == 'd')
             {
-                let prompt = confirm('are your sure to delete?');
+                let prompt = confirm('Are you sure you want to delete?');
                 if ( prompt )
                 {
                     let url =  origin +'/delete';

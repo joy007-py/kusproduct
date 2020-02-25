@@ -1,0 +1,47 @@
+tr{
+    border-bottom: 1px solid #d9dcf3;
+}
+
+table{
+   border-left: 2px solid #36304a;
+   border-right: 2px solid #36304a;
+   border-bottom: 2px solid #36304a;
+}
+.vio_bg{
+    background: #36304a;
+    padding-top: 5px;
+    max-height: 375px;
+}
+
+.vio_bg label, .vio_bg p{
+    color: #fff;
+    
+}
+
+.btn-success.ad_btn{
+    background: #fff;
+    color: #36304a;
+    width: 50%;
+    margin: 0 auto;
+    border:1px solid #fff;
+    margin-bottom: 15px;
+
+}
+
+.table100.ver1 .row100 td.column7 {
+    
+    padding: 1px;
+    line-height: 24px;
+}
+.table100.ver1 .row100 td.column7:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+.ed{
+    color: green !important;
+}
+
+.del{
+    color: red !important;
+}
