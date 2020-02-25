@@ -29,7 +29,7 @@ $route->add('/edit', function(){
     $product_con = new productController();
     if ( $_SERVER['REQUEST_METHOD'] == 'GET' )
     {
-        echo $product_con->getSingleProductInfoInJSON($_GET['id']);
+        $product_con->getSingleProductInfoInJSON($_GET['id']);
     }
     elseif ( $_SERVER['REQUEST_METHOD'] == 'POST' )
     {

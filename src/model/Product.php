@@ -67,10 +67,12 @@ class Product extends Db
             return false;
         $sth = $this->con->prepare('UPDATE test_product SET name = :name , quantity_in_stock = :quantity, price = :price, updated_at = :update_time
                     WHERE id = :id');
+
+        $update_time = date("Y-m-d H:i:s");
         $sth->bindParam(':name', $name, \PDO::PARAM_STR);
         $sth->bindParam(':quantity', $quantity, \PDO::PARAM_INT);
         $sth->bindParam(':price', $price, \PDO::PARAM_INT);
-        $sth->bindParam(':update_time', date("Y-m-d H:i:s"), \PDO::PARAM_STR);
+        $sth->bindParam(':update_time', $update_time , \PDO::PARAM_STR);
         $sth->bindParam(':id', $id, \PDO::PARAM_INT);
         return $sth->execute();
     }
