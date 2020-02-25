@@ -52,6 +52,38 @@ class Product extends Db
         return \json_encode($response);
     }
 
+    /**
+     * update a product data
+     * @param int $id id of the product which will be updated
+     * @param string $name name of the product 
+     * @param int $quantity quantity of the product
+     * @param int $price price of the product
+     * 
+     * @return bool 
+     */
+    public function updateSingleProduct( $id, $name, $quantity, $price )
+    {
+        if( !$this->validateData( $price, $quantity ) )
+            return false;
+        $sth = $this->con->prepare('UPDATE test_product SET name = :name , quantity_in_stock = :quantity, price = :price, updated_at = :update_time
+                    WHERE id = :id');
+        $sth->bindParam(':name', $name, \PDO::PARAM_STR);
+        $sth->bindParam(':quantity', $quantity, \PDO::PARAM_INT);
+        $sth->bindParam(':price', $price, \PDO::PARAM_INT);
+        $sth->bindParam(':update_time', date("Y-m-d H:i:s"), \PDO::PARAM_STR);
+        $sth->bindParam(':id', $id, \PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
+    /**
+     * update product in ajax call
+     */ 
+    public function updateSingleProductInAJAX( $id, $name, $quantity, $price )
+    {
+        $res = $this->updateSingleProduct( $id, $name, $quantity, $price );
+        return $this->jsonMsg( $res );
+    }
+
 
     /**
      * return single product data by id in json format
@@ -221,7 +253,7 @@ class Product extends Db
         if($data)
         {
             $respones = array(
-                'status' => $data
+                'status' => 'true'
             );
         }
         else

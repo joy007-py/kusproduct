@@ -47,6 +47,16 @@ class productController
     }
 
     /**
+     * update in json
+     */
+    public function updaeInJSON( $id, $name, $quantity, $price )
+    {
+        $model = $this->model();
+        echo $model->updateSingleProductInAJAX( $id, $name, $quantity, $price );
+    }
+
+
+    /**
      * delete an product in json
      * @param string $id id of the product
      */

@@ -25,11 +25,11 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Created At</th>
-                                <th scope="col">Total Value</th>
+                                <th scope="col">Product name</th>
+                                <th scope="col">Quantity in stock</th>
+                                <th scope="col">Price per item</th>
+                                <th scope="col">Datetime submitted</th>
+                                <th scope="col">Total value number</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -59,52 +59,22 @@
                     <form id="_p_f" method="POST" action="/create" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
-                            <input type="text" class="form-control" name="name" id="_name" required>
+                            <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Price</label>
-                            <input type="number" class="form-control" name="price" id="_price" required>
+                            <input type="number" class="form-control" name="price" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Quantity</label>
-                            <input type="number" class="form-control" name="quantity" id="_quantity" required>
+                            <input type="number" class="form-control" name="quantity" required>
                         </div>
-                        <button type="submit" class="btn btn-success" id="_c">Add</button>
+                        <button type="submit" class="btn btn-success" id="_c" data-edit="false">Add</button>
+                        <button type="submit" class="btn btn-danger" id="_cancel" style="visibility: hidden;">Cancel</button>
                     </form>
-
-                </div>
-            </div>
-            
-        </div>
-
-        <!-- product create from -->
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-                    <!--
-                    <h5>Create New Product</h5>
-
-                    <form id="_p_f" method="POST" action="/create" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Name</label>
-                            <input type="text" class="form-control" name="name" id="_name" aria-describedby="nameHelp">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Price</label>
-                            <input type="number" class="form-control" name="price" id="_price">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Quantity</label>
-                            <input type="number" class="form-control" name="quantity" id="_quantity">
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="_c">Create</button>
-                    </form>
-                    -->
                 </div>
             </div>
         </div>
-
     </body>
     <script type="text/javascript" src="/assets/js/dev.js" ></script>
 </html>
