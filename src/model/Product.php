@@ -74,16 +74,32 @@ class Product extends Db
         $sth->bindParam(':price', $price, \PDO::PARAM_INT);
         $sth->bindParam(':update_time', $update_time , \PDO::PARAM_STR);
         $sth->bindParam(':id', $id, \PDO::PARAM_INT);
-        return $sth->execute();
+        $sth->execute();
+        if( $sth->execute() )
+            return $id;
+        return 0;
     }
 
     /**
      * update product in ajax call
+     * @param int $id id of the product 
+     * @param string $name name of the product
+     * @param int $quantity quantity of the product
+     * @param int $price price of the product
+     * 
+     * @return string  return json response
      */ 
     public function updateSingleProductInAJAX( $id, $name, $quantity, $price )
     {
-        $res = $this->updateSingleProduct( $id, $name, $quantity, $price );
-        return $this->jsonMsg( $res );
+        $response_id = $this->updateSingleProduct( $id, $name, $quantity, $price );
+        if( !empty($response_id) && isset($response_id) )
+        {
+            return $this->getSingleProductFromattedDatainJSON( $response_id );
+        }
+        else
+        {
+            return $this->jsonMsg( false );
+        }
     }
 
 

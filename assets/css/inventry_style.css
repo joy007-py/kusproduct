@@ -1,3 +1,8 @@
+body{
+    background-image: url("https://image.freepik.com/free-vector/abstract-paper-cut-slime-background_119445-41.jpg");
+    background-size: cover;
+}
+
 tr{
     border-bottom: 1px solid #d9dcf3;
 }
@@ -10,6 +15,7 @@ table{
 .vio_bg{
     background: #36304a;
     padding-top: 5px;
+    padding: 15px;
     max-height: 375px;
 }
 
@@ -32,6 +38,7 @@ table{
     
     padding: 1px;
     line-height: 24px;
+    padding-left: 23px;
 }
 .table100.ver1 .row100 td.column7:hover {
     background-color: inherit;
@@ -39,9 +46,34 @@ table{
 }
 
 .ed{
-    color: green !important;
+    /* background: #7365a0; */
+    border: 1px solid #7365a0;
+    color: #7365a0 !important;
+    display: inline-block;
+    padding: 2px;
+   
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    width: 30px;
+    margin-top: 3px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-right: 15px;
 }
 
 .del{
+ 
+   
+    border: 1px solid #6c7ae0;
     color: red !important;
+    display:inline-block;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    width: 30px;
+    padding: 2px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-weight: bold;
 }

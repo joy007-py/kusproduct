@@ -98,8 +98,8 @@ iframe {
 
 .container-table100 {
   width: 100%;
-  /*min-height: 100vh;*/
-  background: #d1d1d1;
+  /*min-height: 100vh;
+  background: #d1d1d1;*/
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -141,8 +141,8 @@ th, td {
 }
 
 .row100.head th {
-  padding-top: 24px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 8px;
 }
 
 .row100 td {
@@ -162,7 +162,7 @@ th, td {
 
 .table100.ver1 th {
   font-family: Montserrat-Medium;
-  font-size: 12px;
+  font-size: 11px;
   color: #fff;
   line-height: 1.4;
   text-transform: uppercase;
