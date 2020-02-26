@@ -1,4 +1,8 @@
 let origin = window.origin;
+var indian_i = document.createElement('i');
+indian_i.classList.add("fa", "fa-usd");
+indian_i.setAttribute("aria-hidden","true");
+
 document.getElementById('_c').addEventListener('click',(e)=>{
     e.preventDefault();
     var form = document.getElementById('_p_f');
@@ -31,7 +35,7 @@ document.getElementById('_c').addEventListener('click',(e)=>{
                 let parent_continer = document.getElementById('data_body');
                 let tr = document.createElement('tr');
                 tr.classList.add("row100");
-    
+
                 let td1 = document.createElement('td');
                 td1.innerText = data.product.name;
                 td1.classList.add("column100", "column1");
@@ -41,16 +45,18 @@ document.getElementById('_c').addEventListener('click',(e)=>{
                 td2.classList.add("column100", "column2");
     
                 let td3 = document.createElement('td');
-                td3.innerText = data.product.price;
+                td3.innerText = data.product.price + '        ';
                 td3.classList.add("column100", "column3");
+                td3.appendChild(indian_i);
     
                 let td4 = document.createElement('td');
                 td4.innerText = data.product.created_at;
                 td4.classList.add("column100", "column4");
     
                 let td5 = document.createElement('td');
-                td5.innerText = data.product.total_val_num;
+                td5.innerText = data.product.total_val_num + '         ';
                 td5.classList.add("column100", "column5");
+                td5.appendChild(indian_i);
     
                 let td6 = document.createElement('td');
                 td6.classList.add("column100", "column7");
@@ -114,6 +120,7 @@ document.getElementById('_c').addEventListener('click',(e)=>{
             })
             .then((data) => data.json())
             .then((data) => {
+                console.log(data);
                 if( data.status == 'true' )
                 {
                     form.reset();
@@ -134,10 +141,12 @@ document.getElementById('_c').addEventListener('click',(e)=>{
                             else if( i == 2 )
                             {
                                 find_tr.children[i].innerText = data.product.price;
+                                find_tr.children[i].appendChild(indian_i);
                             }
                             else if( i == 4 )
                             {
-                                find_tr.children[i].innerText = data.product.total_val_num;
+                                find_tr.children[i].innerText = data.product.total_val_num + '       ';
+                                find_tr.children[i].appendChild(indian_i);
                             }
                             else
                             {
@@ -188,8 +197,7 @@ try {
                         btn1.dataset.edit = true;
                         btn1.dataset.id = p_id;
                         btn1.innerText = 'Update';
-                        
-
+        
                         var cl_tr = e.target.closest('tr'),
                             cl_tr_id = 'u_' + p_id;
                         cl_tr.setAttribute('id',cl_tr_id);
@@ -197,6 +205,7 @@ try {
                         var btn2 = document.getElementById('_cancel');
                         btn2.style.visibility = 'visible';
                         btn2.dataset.updateid = cl_tr_id;
+                        document.getElementById('_f_h').innerText = 'Update: ' + data.product.name;
                     }
                 } )
                 .catch( (e) => {
@@ -249,4 +258,5 @@ function resetAll()
     btn.dataset.edit = false;
     btn.removeAttribute('data-id');
     btn.innerText = 'Add';
+    document.getElementById('_f_h').innerText = 'Create New Product';
 }

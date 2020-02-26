@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/inventry_style.css">
     <!--===============================================================================================-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
         
@@ -45,9 +46,13 @@
 							<tr class="row100">
 								<td class="column100 column1"><?php echo $value['name'] ?></td>
 								<td class="column100 column2"><?php echo $value['quantity_in_stock'] ?></td>
-								<td class="column100 column3"><?php echo $value['price'] ?></td>
+                                <td class="column100 column3"><?php echo $value['price'] ?>
+                                    <i class="fa fa-usd" aria-hidden="true"></i>
+                                </td>
 								<td class="column100 column4"><?php echo $value['created_at'] ?></td>
-								<td class="column100 column5"><?php echo $value['total_val_num'] ?></td>
+                                <td class="column100 column5"><?php echo $value['total_val_num'] ?>
+                                    <i class="fa fa-usd" aria-hidden="true"></i>
+                                </td>
 								<td class="column100 column7">
                                     <a href="#" class="ed">
                                         <i class="fa fa-pencil" data-id="<?php echo $value['id']?>" data-btn='e'></i>
@@ -65,10 +70,8 @@
             </div>
 
             <div class="col-sm-3 p-0">
-                <h5 class="mb-4">Create New Product</h5>
+                <h5 class="mb-4" id="_f_h">Create New Product</h5>
                 <div class="vio_bg">
-                   
-                    
                     <form id="_p_f" method="POST" action="/create" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Product Name</label>

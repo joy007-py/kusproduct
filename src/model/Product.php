@@ -22,7 +22,7 @@ class Product extends Db
         VALUES (:name, :quantity, :price)');
         $query->bindParam(':name', $name, \PDO::PARAM_STR);
         $query->bindParam(':quantity', $quantity, \PDO::PARAM_STR);
-        $query->bindParam(':price', $price, \PDO::PARAM_INT);
+        $query->bindParam(':price', $price, \PDO::PARAM_STR);
         $query->execute();
         return $this->con->lastInsertId();
     } 
@@ -71,7 +71,7 @@ class Product extends Db
         $update_time = date("Y-m-d H:i:s");
         $sth->bindParam(':name', $name, \PDO::PARAM_STR);
         $sth->bindParam(':quantity', $quantity, \PDO::PARAM_INT);
-        $sth->bindParam(':price', $price, \PDO::PARAM_INT);
+        $sth->bindParam(':price', $price, \PDO::PARAM_STR);
         $sth->bindParam(':update_time', $update_time , \PDO::PARAM_STR);
         $sth->bindParam(':id', $id, \PDO::PARAM_INT);
         $sth->execute();
