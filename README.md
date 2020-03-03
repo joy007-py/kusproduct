@@ -16,3 +16,5 @@ for data in json format change the name of dump file in the index.php if you wan
 
 to get the letest dump file just visit home page and refresh the page once then
 the letest db dump should be saved in root project directory in the json format.
+
+-----------
