@@ -13,7 +13,7 @@ class productController
     public function index()
     {
         $model = $this->model();
-        $model->dumpJsonData();
+        $model->dumpData( new \app\helper\JsonDumper );
 
         return $this->render( 'product.php', [
             'data' => $model->getAllProductFormattedData(),

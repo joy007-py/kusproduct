@@ -3,6 +3,7 @@
 namespace app\model;
 
 use app\db\Db;
+use app\helper\dumpInterface;
 
 class Product extends Db
 {
@@ -167,20 +168,10 @@ class Product extends Db
      * @param null
      * @return json product info as .json file
      */
-    public function dumpJsonData()
+    public function dumpData( dumpInterface $dumper )
     {
-        $file_path = PROJECT_DIR . '/'. DATA_DUMP_FILE;
         $data = $this->getAllProductFormattedData();
-        if(\file_exists( $file_path ))
-        {
-            \unlink($file_path);
-        }
-        if( !empty($data) )
-        {
-            $fp = fopen($file_path, 'w');
-            fwrite($fp, json_encode($data));
-            fclose($fp);
-        }
+        $dumper->dump( $data );
     }
 
     /**
